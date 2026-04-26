@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Caravan — Uzbekistan's first national-cuisine restaurant since 1999. Authentic plov, lagman, shashlik and live folk music in the heart of Tashkent." />
+<meta name="theme-color" content="#1a1410" />
+<title>Caravan — Authentic Uzbek Cuisine in Tashkent since 1999</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0e0a07;
+    --bg-2:#1a1410;
+    --surface:#221a14;
+    --line:#3a2c22;
+    --ink:#f5ebde;
+    --ink-2:#cdbfae;
+    --muted:#8a7a68;
+    --gold:#c89d56;
+    --gold-2:#e0b878;
+    --accent:#a14d2e;
+    --shadow:0 30px 80px -20px rgba(0,0,0,.6);
+    --radius:18px;
+    --radius-sm:12px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.01em}
+  .eyebrow{
+    display:inline-block;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:14px;
+  }
+  .eyebrow::before,.eyebrow::after{content:"";display:inline-block;width:22px;height:1px;background:var(--gold);vertical-align:middle;opacity:.85}
+  .eyebrow::before{margin-right:12px}
+  .eyebrow::after{margin-left:12px}
+  /* Hero-side eyebrow: keep asymmetric, single rule, more editorial */
+  .hero .eyebrow::after,.story-text .eyebrow::after{display:none}
+
+  /* NAV */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    backdrop-filter:saturate(140%) blur(14px);
+    background:rgba(14,10,7,.72);
+    border-bottom:1px solid rgba(255,255,255,.06);
+    transition:background .3s ease;
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;letter-spacing:.04em}
+  .brand-mark{
+    width:34px;height:34px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%,var(--gold-2),var(--gold) 60%,#7a5a2a 100%);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);
+    display:grid;place-items:center;color:#1a1410;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:18px;
+  }
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a:not(.nav-cta){font-size:14px;color:var(--ink-2);transition:color .2s}
+  .nav-links a:not(.nav-cta):hover{color:var(--gold-2)}
+  .nav-cta{
+    padding:10px 18px;border-radius:999px;background:var(--gold);color:#1a1410!important;
+    font-weight:600;font-size:13px;letter-spacing:.04em;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 10px 25px -8px rgba(200,157,86,.55)}
+
+  /* LANG SWITCH */
+  .lang-switch{
+    display:inline-flex;align-items:center;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:999px;padding:3px;gap:0;
+  }
+  .lang-switch button{
+    padding:6px 11px;border-radius:999px;background:transparent;border:0;
+    color:var(--ink-2);font-family:'Inter',sans-serif;
+    font-size:11px;font-weight:700;letter-spacing:.1em;cursor:pointer;
+    transition:background .2s, color .2s;text-transform:uppercase;
+    line-height:1;
+  }
+  .lang-switch button:hover:not(.active){color:var(--ink)}
+  .lang-switch button.active{
+    background:var(--gold);color:#1a1410;
+    box-shadow:0 4px 12px -4px rgba(200,157,86,.6);
+  }
+
+  .menu-btn{display:none;background:none;border:0;color:var(--ink);font-size:24px;cursor:pointer}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:center;
+    padding:120px 0 80px;
+    background:
+      radial-gradient(ellipse at 70% 20%, rgba(200,157,86,.18), transparent 60%),
+      radial-gradient(ellipse at 10% 80%, rgba(161,77,46,.18), transparent 60%),
+      linear-gradient(180deg,#0e0a07 0%,#1a1410 100%);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(200,157,86,.07) 1px, transparent 0);
+    background-size:32px 32px;
+    mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+    pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative;z-index:2}
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(40px,5.8vw,76px);
+    line-height:1.04;letter-spacing:-.02em;font-weight:600;
+    margin-bottom:22px;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-2);font-weight:500}
+  .hero p.lede{font-size:18px;color:var(--ink-2);max-width:560px;margin-bottom:36px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 26px;border-radius:999px;
+    font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;
+    transition:transform .2s, box-shadow .2s, background .2s, color .2s;
+    cursor:pointer;border:0;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--gold-2),var(--gold));
+    color:#1a1410;
+    box-shadow:0 14px 30px -10px rgba(200,157,86,.55);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 40px -10px rgba(200,157,86,.7)}
+  .btn-ghost{
+    background:transparent;color:var(--ink);
+    border:1px solid rgba(245,235,222,.22);
+  }
+  .btn-ghost:hover{background:rgba(245,235,222,.06);border-color:rgba(245,235,222,.4)}
+  .btn svg{width:16px;height:16px}
+
+  .hero-meta{display:flex;gap:28px;flex-wrap:wrap;color:var(--ink-2);font-size:14px}
+  .hero-meta div{display:flex;align-items:center;gap:8px}
+  .hero-meta strong{color:var(--ink);font-weight:600}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+  /* Hero card */
+  .hero-card{
+    position:relative;border-radius:24px;overflow:hidden;
+    aspect-ratio:4/5;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(200,157,86,.35), transparent 55%),
+      radial-gradient(ellipse at 70% 80%, rgba(161,77,46,.45), transparent 55%),
+      linear-gradient(160deg,#2d1f15 0%,#1a120c 100%);
+    border:1px solid rgba(200,157,86,.18);
+    box-shadow:var(--shadow);
+    display:grid;place-items:center;
+  }
+  .ornament{position:absolute;inset:0;display:grid;place-items:center;opacity:.55}
+  .ornament svg{width:78%;height:78%}
+  .hero-card-content{position:relative;z-index:2;text-align:center;padding:40px}
+  .hero-card-content .est{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-2);font-size:18px;letter-spacing:.1em}
+  .hero-card-content .num{font-family:'Cormorant Garamond',serif;font-size:120px;font-weight:600;color:var(--ink);line-height:1;margin:8px 0}
+  .hero-card-content .lab{color:var(--ink-2);font-size:13px;letter-spacing:.3em;text-transform:uppercase}
+  .floating-badge{
+    position:absolute;bottom:24px;left:24px;right:24px;
+    background:rgba(14,10,7,.7);backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.08);border-radius:14px;
+    padding:14px 16px;display:flex;align-items:center;gap:12px;
+  }
+  .stars{color:var(--gold-2);letter-spacing:2px;font-size:14px}
+  .floating-badge .t{font-size:13px;color:var(--ink-2)}
+  .floating-badge .t b{color:var(--ink)}
+
+  /* SECTION */
+  section{padding:110px 0;position:relative}
+  .section-head{max-width:720px;margin:0 auto 64px;text-align:center;position:relative}
+  .section-head::before{
+    content:"";display:block;width:80px;height:60px;margin:0 auto 24px;
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 60' fill='none' stroke='%23c89d56' stroke-width='1.1' stroke-linejoin='round'><g opacity='.85'><rect x='32' y='4' width='16' height='16'/><rect x='32' y='4' width='16' height='16' transform='rotate(45 40 12)'/></g><line x1='40' y1='28' x2='40' y2='58' stroke-opacity='.55'/></svg>") no-repeat center/contain;
+  }
+  .section-head h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(34px,4.4vw,54px);
+    line-height:1.05;letter-spacing:-.01em;font-weight:600;margin-bottom:18px;
+  }
+  .section-head h2 em{font-style:italic;color:var(--gold-2)}
+  .section-head p{color:var(--ink-2);font-size:17px}
+
+  /* Silk Road watermark — 8-pointed star pattern, near-invisible, on key sections */
+  .menu, .proof, .visit { position: relative; }
+  .menu::before, .proof::before, .visit::before {
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke='%23c89d56' stroke-width='.7'><g opacity='.9'><rect x='44' y='44' width='32' height='32'/><rect x='44' y='44' width='32' height='32' transform='rotate(45 60 60)'/></g></svg>");
+    background-size:140px 140px;background-position:center;
+    opacity:.035;mask-image:radial-gradient(ellipse at center, black 30%, transparent 80%);
+    -webkit-mask-image:radial-gradient(ellipse at center, black 30%, transparent 80%);
+  }
+  .menu > .container, .proof > .container, .visit > .container { position:relative; z-index:1; }
+
+  /* STORY */
+  .story{background:linear-gradient(180deg,#1a1410 0%,#0e0a07 100%)}
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .story-text p{color:var(--ink-2);margin-bottom:18px;font-size:16px}
+  .story-text p:first-of-type::first-letter{
+    font-family:'Cormorant Garamond',serif;font-size:64px;float:left;line-height:.9;
+    color:var(--gold-2);padding:6px 14px 0 0;font-weight:600;
+  }
+  .story-stats{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  .stat{
+    background:var(--surface);border:1px solid var(--line);
+    padding:22px;border-radius:var(--radius-sm);
+  }
+  .stat .n{font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--gold-2);font-weight:600;line-height:1}
+  .stat .l{font-size:13px;color:var(--ink-2);margin-top:6px;letter-spacing:.04em}
+
+  .story-visual{
+    aspect-ratio:1/1;border-radius:var(--radius);
+    background:
+      radial-gradient(ellipse at 30% 30%, rgba(200,157,86,.3), transparent 50%),
+      linear-gradient(135deg,#3a2818 0%,#1a120c 100%);
+    border:1px solid rgba(200,157,86,.15);
+    display:grid;place-items:center;position:relative;overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .story-visual::before{
+    content:"";position:absolute;inset:18px;border:1px solid rgba(200,157,86,.18);border-radius:14px;
+  }
+  .story-visual svg{width:55%;height:55%;color:var(--gold-2)}
+
+  /* MENU */
+  .menu{background:var(--bg)}
+  .menu-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 56px;max-width:920px;margin:0 auto}
+  .dish{
+    padding:22px 0;border-bottom:1px dashed var(--line);
+    display:flex;justify-content:space-between;gap:24px;align-items:baseline;
+  }
+  .dish-name{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);font-weight:600}
+  .dish-desc{display:block;font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);margin-top:4px;font-weight:400}
+  .dish-tag{font-size:12px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;font-weight:600}
+
+  .menu-cta{text-align:center;margin-top:60px}
+  .menu-note{color:var(--muted);font-size:14px;margin-top:18px;font-style:italic}
+
+  /* SPACES */
+  .spaces{background:linear-gradient(180deg,#0e0a07 0%,#1a1410 100%)}
+  .spaces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .space{
+    background:var(--surface);border:1px solid var(--line);
+    padding:32px 28px;border-radius:var(--radius-sm);
+    transition:transform .25s ease, border-color .25s ease;
+  }
+  .space:hover{transform:translateY(-4px);border-color:rgba(200,157,86,.4)}
+  .space-icon{width:42px;height:42px;color:var(--gold-2);margin-bottom:18px}
+  .space h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--ink);font-weight:600;margin-bottom:8px}
+  .space p{color:var(--ink-2);font-size:14px}
+
+  /* PROOF */
+  .proof{background:var(--bg-2)}
+  .proof-top{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:50px;text-align:center}
+  .proof-stat{text-align:center}
+  .proof-stat .n{font-family:'Cormorant Garamond',serif;font-size:56px;color:var(--gold-2);font-weight:600;line-height:1}
+  .proof-stat .l{font-size:13px;color:var(--ink-2);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+  .proof-divider{width:1px;height:60px;background:var(--line);display:none}
+  @media (min-width:700px){.proof-divider{display:block}}
+
+  .testimonial-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .testimonial{
+    background:var(--surface);border:1px solid var(--line);
+    padding:28px;border-radius:var(--radius-sm);
+    position:relative;
+  }
+  .testimonial .quote-mark{
+    font-family:'Cormorant Garamond',serif;font-size:80px;color:var(--gold);
+    position:absolute;top:-10px;left:18px;line-height:1;opacity:.4;
+  }
+  .testimonial .stars{margin-bottom:12px}
+  .testimonial p{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--ink);line-height:1.4;font-style:italic;margin-bottom:14px}
+  .testimonial .src{font-size:13px;color:var(--muted);letter-spacing:.04em}
+
+  /* VISIT */
+  .visit{background:var(--bg)}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+  .visit-card{
+    background:var(--surface);border:1px solid var(--line);
+    padding:40px;border-radius:var(--radius);
+  }
+  .visit-card h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin-bottom:22px}
+  .info-row{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .info-row:last-child{border:0}
+  .info-row .ic{width:22px;height:22px;color:var(--gold-2);flex-shrink:0;margin-top:2px}
+  .info-row .lab{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px}
+  .info-row .val{font-size:15px;color:var(--ink)}
+  .info-row a.val{color:var(--gold-2)}
+  .info-row a.val:hover{text-decoration:underline}
+
+  .map-card{
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(200,157,86,.18), transparent 70%),
+      linear-gradient(160deg,#2d1f15 0%,#1a120c 100%);
+    border:1px solid rgba(200,157,86,.18);
+    border-radius:var(--radius);
+    aspect-ratio:1/1;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:30px;text-align:center;position:relative;overflow:hidden;
+  }
+  .map-card::before{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(0deg,transparent 49%,rgba(200,157,86,.08) 50%,transparent 51%) 0 0/100% 60px,
+      linear-gradient(90deg,transparent 49%,rgba(200,157,86,.08) 50%,transparent 51%) 0 0/60px 100%;
+  }
+  .map-card svg{width:64px;height:64px;color:var(--gold-2);margin-bottom:18px;position:relative;z-index:2}
+  .map-card .place{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--ink);font-weight:600;position:relative;z-index:2}
+  .map-card .addr{color:var(--ink-2);font-size:14px;margin-top:6px;margin-bottom:24px;position:relative;z-index:2}
+  .map-card .btn{position:relative;z-index:2}
+
+  /* FINAL CTA */
+  .final-cta{
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(200,157,86,.25), transparent 60%),
+      linear-gradient(180deg,#1a1410 0%,#0e0a07 100%);
+    text-align:center;padding:130px 0;
+  }
+  .final-cta h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(40px,5.2vw,68px);
+    line-height:1.05;letter-spacing:-.01em;font-weight:600;
+    max-width:800px;margin:0 auto 18px;
+  }
+  .final-cta h2 em{font-style:italic;color:var(--gold-2)}
+  .final-cta p{color:var(--ink-2);font-size:17px;max-width:540px;margin:0 auto 36px}
+  .final-cta .hero-ctas{justify-content:center}
+
+  /* FOOTER */
+  footer{background:#08060a;padding:60px 0 30px;border-top:1px solid rgba(255,255,255,.05)}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  .foot-grid h4{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--ink);margin-bottom:16px;font-weight:600}
+  .foot-grid a, .foot-grid p{color:var(--muted);font-size:14px;margin-bottom:8px;display:block;transition:color .2s}
+  .foot-grid a:hover{color:var(--gold-2)}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.05);padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+    color:var(--muted);font-size:13px;
+  }
+
+  /* ANIMATIONS — CSS-only, IO-independent. Fail-safe: visible by default. */
+  @keyframes settle {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .reveal{opacity:1;transform:none;animation:settle .9s cubic-bezier(.2,.8,.2,1) both}
+  .reveal.in{opacity:1;transform:none} /* legacy hook; harmless */
+
+  /* RESPONSIVE */
+  @media (max-width:1080px){
+    .nav-links{gap:18px}
+  }
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;gap:50px}
+    .hero-card{aspect-ratio:5/4;max-width:520px;margin:0 auto;width:100%}
+    .story-grid,.visit-grid{grid-template-columns:1fr;gap:40px}
+    .menu-list{grid-template-columns:1fr;gap:0}
+    .spaces-grid,.testimonial-row{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr;gap:30px}
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;background:rgba(14,10,7,.98);padding:24px;gap:18px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .menu-btn{display:block}
+    section{padding:80px 0}
+  }
+  @media (max-width:560px){
+    .hero{padding:100px 0 60px}
+    .hero-meta{gap:18px;font-size:13px}
+    .btn{padding:14px 22px;font-size:13px}
+    .visit-card{padding:28px 22px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">C</span>
+      <span data-i18n="brand">Caravan</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#story" data-i18n="nav.story">Story</a>
+      <a href="#menu" data-i18n="nav.menu">Menu</a>
+      <a href="#spaces" data-i18n="nav.spaces">Spaces</a>
+      <a href="#visit" data-i18n="nav.visit">Visit</a>
+
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="uz">UZ</button>
+      </div>
+
+      <a href="tel:+998781507555" class="nav-cta" data-i18n="nav.cta">Reserve a Table</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow" data-i18n="hero.eyebrow">Tashkent · Yakkasaray District · Since 1999</span>
+      <h1 data-i18n-html="hero.title">Where Uzbekistan’s <em>first national-cuisine restaurant</em> still gathers travellers, locals and stories.</h1>
+      <p class="lede" data-i18n="hero.lede">Twenty-five years of plov, lagman, shashlik and live folk music — served in a courtyard built around traditional Uzbek architecture, just steps from the heart of Tashkent.</p>
+
+      <div class="hero-ctas">
+        <a href="tel:+998781507555" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92Z"/></svg>
+          <span data-i18n="hero.cta1">Reserve a Table</span>
+        </a>
+        <a href="#menu" class="btn btn-ghost">
+          <span data-i18n="hero.cta2">View Menu</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-meta">
+        <div><span class="dot"></span><span data-i18n-html="hero.meta1"><strong>Open today</strong> · 11:00 – 02:00</span></div>
+        <div><span class="dot"></span><span data-i18n-html="hero.meta2"><strong>4.2 ★</strong> · 700+ Tripadvisor reviews</span></div>
+        <div><span class="dot"></span><span data-i18n-html="hero.meta3"><strong>Travellers’ Choice</strong> · 2025</span></div>
+      </div>
+    </div>
+
+    <aside class="hero-card" aria-hidden="true">
+      <div class="ornament">
+        <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width=".6" style="color:var(--gold)">
+          <circle cx="100" cy="100" r="92"/>
+          <circle cx="100" cy="100" r="72"/>
+          <g transform="translate(100 100)">
+            <g id="petal"><path d="M0 -72 C 18 -50 18 -28 0 -10 C -18 -28 -18 -50 0 -72Z" fill="rgba(200,157,86,.08)"/></g>
+            <use href="#petal" transform="rotate(45)"/>
+            <use href="#petal" transform="rotate(90)"/>
+            <use href="#petal" transform="rotate(135)"/>
+            <use href="#petal" transform="rotate(180)"/>
+            <use href="#petal" transform="rotate(225)"/>
+            <use href="#petal" transform="rotate(270)"/>
+            <use href="#petal" transform="rotate(315)"/>
+          </g>
+          <circle cx="100" cy="100" r="16" fill="rgba(200,157,86,.18)"/>
+        </svg>
+      </div>
+      <div class="hero-card-content">
+        <div class="est" data-i18n="card.est">— Established —</div>
+        <div class="num">1999</div>
+        <div class="lab" data-i18n="card.label">Twenty-Five Years of Hospitality</div>
+      </div>
+      <div class="floating-badge">
+        <span class="stars">★★★★☆</span>
+        <span class="t" data-i18n-html="card.badge"><b>4.2 / 5</b> · 713 reviews on Tripadvisor · #15 of 939 in Tashkent</span>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="story.eyebrow">Our Story</span>
+      <h2 data-i18n-html="story.title">The first <em>national-cuisine</em> restaurant in Tashkent.</h2>
+    </div>
+    <div class="story-grid">
+      <div class="story-text reveal">
+        <p data-i18n="story.p1">Caravan opened its doors in 1999 — at a moment when Uzbek cuisine was rarely served at this standard outside of family homes. The idea was simple: take dishes that travellers along the old Silk Road would have recognised, and serve them in a setting worthy of them.</p>
+        <p data-i18n="story.p2">Twenty-five years later, the courtyard is still full. Hand-pulled lagman, slow-cooked plov, shashlik over open flame, and shurpa from the kazan are prepared the way they always have been. Live music drifts between Uzbek folklore, ethno-fusion jazz and ambient melodies — performed by musicians known well beyond Uzbekistan.</p>
+        <p data-i18n="story.p3">We are part dining room, part museum of Uzbek applied art: traditional carpets, Rishtan ceramics, custom pottery, and rooms named after the crafts that inspired them.</p>
+
+        <div class="story-stats">
+          <div class="stat"><div class="n">25+</div><div class="l" data-i18n="story.stat1">Years of hospitality</div></div>
+          <div class="stat"><div class="n">3</div><div class="l" data-i18n="story.stat2">Languages on staff</div></div>
+        </div>
+      </div>
+      <div class="story-visual reveal" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M40 140 Q 60 80 100 80 Q 140 80 160 140" stroke-width="1.5"/>
+          <path d="M55 140 L 145 140" stroke-width="1.5"/>
+          <path d="M50 145 L 150 145" stroke-width="1.5"/>
+          <circle cx="100" cy="60" r="6" fill="currentColor" opacity=".5"/>
+          <path d="M75 100 Q 100 90 125 100" stroke-width=".8" opacity=".6"/>
+          <path d="M70 115 Q 100 105 130 115" stroke-width=".8" opacity=".6"/>
+          <path d="M65 130 Q 100 120 135 130" stroke-width=".8" opacity=".6"/>
+          <g opacity=".7"><path d="M30 150 Q 30 155 35 155 L 165 155 Q 170 155 170 150" stroke-width="1.2"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="menu.eyebrow">The Table</span>
+      <h2 data-i18n-html="menu.title">Featured dishes from <em>our kazan</em>.</h2>
+      <p data-i18n="menu.intro">A selection of the dishes Caravan has been serving since the day we opened. The full menu is presented in three languages and updated seasonally.</p>
+    </div>
+
+    <div class="menu-list">
+      <div class="dish reveal">
+        <div>
+          <span class="dish-name" data-i18n="dish.plov.name">Plov</span>
+          <span class="dish-desc" data-i18n="dish.plov.desc">Uzbek pilaf with tender lamb, sweet carrots and rice — slow-cooked in the kazan.</span>
+        </div>
+        <span class="dish-tag" data-i18n="tag.signature">Signature</span>
+      </div>
+      <div class="dish reveal">
+        <div>
+          <span class="dish-name" data-i18n="dish.lagman.name">Lagman</span>
+          <span class="dish-desc" data-i18n="dish.lagman.desc">Hand-pulled noodles in a deep, herbaceous broth with hand-cut beef and vegetables.</span>
+        </div>
+        <span class="dish-tag" data-i18n="tag.house">House</span>
+      </div>
+      <div class="dish reveal">
+        <div>
+          <span class="dish-name" data-i18n="dish.shashlik.name">Shashlik</span>
+          <span class="dish-desc" data-i18n="dish.shashlik.desc">Skewers grilled over open flame — lamb, beef and chicken, finished with onion and sumac.</span>
+        </div>
+        <span class="dish-tag" data-i18n="tag.grill">Grill</span>
+      </div>
+      <div class="dish reveal">
+        <div>
+          <span class="dish-name" data-i18n="dish.shurpa.name">Shurpa</span>
+          <span class="dish-desc" data-i18n="dish.shurpa.desc">Rich, slow-simmered lamb soup with potato, carrot, tomato and fresh herbs.</span>
+        </div>
+        <span class="dish-tag" data-i18n="tag.kazan">Kazan</span>
+      </div>
+      <div class="dish reveal">
+        <div>
+          <span class="dish-name" data-i18n="dish.manti.name">Manti</span>
+          <span class="dish-desc" data-i18n="dish.manti.desc">Steamed dumplings — “thin dough and juicy meat,” as guests have put it.</span>
+        </div>
+        <span class="dish-tag" data-i18n="tag.steamed">Steamed</span>
+      </div>
+      <div class="dish reveal">
+        <div>
+          <span class="dish-name" data-i18n="dish.non.name">Tandoor Bread</span>
+          <span class="dish-desc" data-i18n="dish.non.desc">Fresh-baked Uzbek non, served warm. The most ordered side at every table.</span>
+        </div>
+        <span class="dish-tag" data-i18n="tag.bakery">Bakery</span>
+      </div>
+    </div>
+
+    <div class="menu-cta reveal">
+      <a href="tel:+998781507555" class="btn btn-primary" data-i18n="menu.cta">Call to Reserve · +998 78 150 75 55</a>
+      <p class="menu-note" data-i18n="menu.note">Full menu available in Russian, English and Uzbek on arrival.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SPACES -->
+<section class="spaces" id="spaces">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="spaces.eyebrow">The House</span>
+      <h2 data-i18n-html="spaces.title">Six rooms. <em>One courtyard.</em></h2>
+      <p data-i18n="spaces.intro">From a quiet two-top under the trees to a private hall for celebrations — Caravan is built like a traditional Uzbek house, room by room.</p>
+    </div>
+    <div class="spaces-grid">
+      <div class="space reveal">
+        <svg class="space-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-6h6v6"/></svg>
+        <h3 data-i18n="space.courtyard.name">The Courtyard</h3>
+        <p data-i18n="space.courtyard.desc">Open-air seating beneath the trees. Cool even in the Tashkent summer — the favourite of long-time regulars.</p>
+      </div>
+      <div class="space reveal">
+        <svg class="space-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M8 6V3M16 6V3"/></svg>
+        <h3 data-i18n="space.rishtan.name">Rishtan Room</h3>
+        <p data-i18n="space.rishtan.desc">Named after the legendary ceramic tradition of the Fergana Valley. Walls dressed in hand-painted blue and white tile.</p>
+      </div>
+      <div class="space reveal">
+        <svg class="space-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 L2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <h3 data-i18n="space.vip.name">The Terrace &amp; VIP</h3>
+        <p data-i18n="space.vip.desc">Live music every evening. A separate VIP room and a second floor available for private events and banquets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof" id="proof">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="proof.eyebrow">Guests &amp; Reviews</span>
+      <h2 data-i18n-html="proof.title">Twenty-five years of <em>full tables</em>.</h2>
+    </div>
+
+    <div class="proof-top reveal">
+      <div class="proof-stat">
+        <div class="n">4.2 ★</div>
+        <div class="l" data-i18n="proof.stat1">Tripadvisor Rating</div>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <div class="n">700+</div>
+        <div class="l" data-i18n="proof.stat2">Verified Reviews</div>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <div class="n">#15</div>
+        <div class="l" data-i18n="proof.stat3">of 939 in Tashkent</div>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <div class="n">2025</div>
+        <div class="l" data-i18n="proof.stat4">Travellers’ Choice</div>
+      </div>
+    </div>
+
+    <div class="testimonial-row">
+      <div class="testimonial reveal">
+        <span class="quote-mark">“</span>
+        <div class="stars">★★★★★</div>
+        <p data-i18n="t1.quote">Every dish was exquisite — a real journey of authentic flavours.</p>
+        <div class="src" data-i18n="t1.src">— Guest from Italy, Tripadvisor</div>
+      </div>
+      <div class="testimonial reveal">
+        <span class="quote-mark">“</span>
+        <div class="stars">★★★★★</div>
+        <p data-i18n="t2.quote">Thin dough and juicy meat — pure delight.</p>
+        <div class="src" data-i18n="t2.src">— On the manti, Tripadvisor</div>
+      </div>
+      <div class="testimonial reveal">
+        <span class="quote-mark">“</span>
+        <div class="stars">★★★★★</div>
+        <p data-i18n="t3.quote">A fabulous garden where, even in summer, it stays cool.</p>
+        <div class="src" data-i18n="t3.src">— On the courtyard, Tripadvisor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="visit.eyebrow">Find Us</span>
+      <h2 data-i18n-html="visit.title">Come for dinner. <em>Stay for the music.</em></h2>
+    </div>
+
+    <div class="visit-grid">
+      <div class="visit-card reveal">
+        <h3 data-i18n="visit.cardTitle">Hours &amp; Contact</h3>
+
+        <div class="info-row">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <div>
+            <div class="lab" data-i18n="visit.openLabel">Open Daily</div>
+            <div class="val">11:00 — 02:00</div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92Z"/></svg>
+          <div>
+            <div class="lab" data-i18n="visit.resLabel">Reservations</div>
+            <a class="val" href="tel:+998781507555">+998 78 150 75 55</a>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <div>
+            <div class="lab" data-i18n="visit.emailLabel">Email</div>
+            <a class="val" href="mailto:info@caravangroup.uz">info@caravangroup.uz</a>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <div class="lab" data-i18n="visit.addrLabel">Address</div>
+            <div class="val" data-i18n-html="visit.addr">ul. Mahmuda Tarabi 22<br/>Yakkasaray District, Tashkent</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="place" data-i18n="map.place">Caravan</div>
+        <div class="addr" data-i18n-html="map.addr">ul. Mahmuda Tarabi 22<br/>Yakkasaray District, Tashkent</div>
+        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Caravan+restaurant+Mahmuda+Tarabi+22+Tashkent">
+          <span data-i18n="map.cta">Open in Google Maps</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow reveal" data-i18n="final.eyebrow">Tonight at Caravan</span>
+    <h2 class="reveal" data-i18n-html="final.title">A table by the courtyard, the smell of <em>plov from the kazan</em>, and the first notes of the dutar.</h2>
+    <p class="reveal" data-i18n="final.p">Reservations are recommended on weekends. We answer the phone in Russian, English and Uzbek.</p>
+    <div class="hero-ctas reveal">
+      <a href="tel:+998781507555" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92Z"/></svg>
+        <span data-i18n="final.cta1">Call +998 78 150 75 55</span>
+      </a>
+      <a href="mailto:info@caravangroup.uz" class="btn btn-ghost">
+        <span data-i18n="final.cta2">Email Reservations</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <h4 data-i18n="brand">Caravan</h4>
+        <p data-i18n="footer.about">Uzbekistan’s first national-cuisine restaurant. Serving plov, lagman and live folk music to Tashkent since 1999.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.visitTitle">Visit</h4>
+        <p data-i18n="footer.addr1">ul. Mahmuda Tarabi 22</p>
+        <p data-i18n="footer.addr2">Yakkasaray District</p>
+        <p data-i18n="footer.addr3">Tashkent, Uzbekistan</p>
+        <p data-i18n="footer.daily">Daily · 11:00 — 02:00</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.contactTitle">Contact</h4>
+        <a href="tel:+998781507555">+998 78 150 75 55</a>
+        <a href="mailto:info@caravangroup.uz">info@caravangroup.uz</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Caravan+restaurant+Mahmuda+Tarabi+22+Tashkent" target="_blank" rel="noopener" data-i18n="footer.openMaps">Open in Google Maps →</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div><span>© <span id="yr"></span></span> <span data-i18n="footer.copy">Caravan Restaurant · Tashkent</span></div>
+      <div data-i18n="footer.note">Reservations recommended on weekends</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ---------- TRANSLATIONS ---------- */
+  const I18N = {
+    en: {
+      "brand":"Caravan",
+      "nav.story":"Story",
+      "nav.menu":"Menu",
+      "nav.spaces":"Spaces",
+      "nav.visit":"Visit",
+      "nav.cta":"Reserve a Table",
+
+      "hero.eyebrow":"Tashkent · Yakkasaray District · Since 1999",
+      "hero.title":"Where Uzbekistan’s <em>first national-cuisine restaurant</em> still gathers travellers, locals and stories.",
+      "hero.lede":"Twenty-five years of plov, lagman, shashlik and live folk music — served in a courtyard built around traditional Uzbek architecture, just steps from the heart of Tashkent.",
+      "hero.cta1":"Reserve a Table",
+      "hero.cta2":"View Menu",
+      "hero.meta1":"<strong>Open today</strong> · 11:00 – 02:00",
+      "hero.meta2":"<strong>4.2 ★</strong> · 700+ Tripadvisor reviews",
+      "hero.meta3":"<strong>Travellers’ Choice</strong> · 2025",
+
+      "card.est":"— Established —",
+      "card.label":"Twenty-Five Years of Hospitality",
+      "card.badge":"<b>4.2 / 5</b> · 713 reviews on Tripadvisor · #15 of 939 in Tashkent",
+
+      "story.eyebrow":"Our Story",
+      "story.title":"The first <em>national-cuisine</em> restaurant in Tashkent.",
+      "story.p1":"Caravan opened its doors in 1999 — at a moment when Uzbek cuisine was rarely served at this standard outside of family homes. The idea was simple: take dishes that travellers along the old Silk Road would have recognised, and serve them in a setting worthy of them.",
+      "story.p2":"Twenty-five years later, the courtyard is still full. Hand-pulled lagman, slow-cooked plov, shashlik over open flame, and shurpa from the kazan are prepared the way they always have been. Live music drifts between Uzbek folklore, ethno-fusion jazz and ambient melodies — performed by musicians known well beyond Uzbekistan.",
+      "story.p3":"We are part dining room, part museum of Uzbek applied art: traditional carpets, Rishtan ceramics, custom pottery, and rooms named after the crafts that inspired them.",
+      "story.stat1":"Years of hospitality",
+      "story.stat2":"Languages on staff",
+
+      "menu.eyebrow":"The Table",
+      "menu.title":"Featured dishes from <em>our kazan</em>.",
+      "menu.intro":"A selection of the dishes Caravan has been serving since the day we opened. The full menu is presented in three languages and updated seasonally.",
+      "dish.plov.name":"Plov",
+      "dish.plov.desc":"Uzbek pilaf with tender lamb, sweet carrots and rice — slow-cooked in the kazan.",
+      "dish.lagman.name":"Lagman",
+      "dish.lagman.desc":"Hand-pulled noodles in a deep, herbaceous broth with hand-cut beef and vegetables.",
+      "dish.shashlik.name":"Shashlik",
+      "dish.shashlik.desc":"Skewers grilled over open flame — lamb, beef and chicken, finished with onion and sumac.",
+      "dish.shurpa.name":"Shurpa",
+      "dish.shurpa.desc":"Rich, slow-simmered lamb soup with potato, carrot, tomato and fresh herbs.",
+      "dish.manti.name":"Manti",
+      "dish.manti.desc":"Steamed dumplings — “thin dough and juicy meat,” as guests have put it.",
+      "dish.non.name":"Tandoor Bread",
+      "dish.non.desc":"Fresh-baked Uzbek non, served warm. The most ordered side at every table.",
+      "tag.signature":"Signature",
+      "tag.house":"House",
+      "tag.grill":"Grill",
+      "tag.kazan":"Kazan",
+      "tag.steamed":"Steamed",
+      "tag.bakery":"Bakery",
+      "menu.cta":"Call to Reserve · +998 78 150 75 55",
+      "menu.note":"Full menu available in Russian, English and Uzbek on arrival.",
+
+      "spaces.eyebrow":"The House",
+      "spaces.title":"Six rooms. <em>One courtyard.</em>",
+      "spaces.intro":"From a quiet two-top under the trees to a private hall for celebrations — Caravan is built like a traditional Uzbek house, room by room.",
+      "space.courtyard.name":"The Courtyard",
+      "space.courtyard.desc":"Open-air seating beneath the trees. Cool even in the Tashkent summer — the favourite of long-time regulars.",
+      "space.rishtan.name":"Rishtan Room",
+      "space.rishtan.desc":"Named after the legendary ceramic tradition of the Fergana Valley. Walls dressed in hand-painted blue and white tile.",
+      "space.vip.name":"The Terrace & VIP",
+      "space.vip.desc":"Live music every evening. A separate VIP room and a second floor available for private events and banquets.",
+
+      "proof.eyebrow":"Guests & Reviews",
+      "proof.title":"Twenty-five years of <em>full tables</em>.",
+      "proof.stat1":"Tripadvisor Rating",
+      "proof.stat2":"Verified Reviews",
+      "proof.stat3":"of 939 in Tashkent",
+      "proof.stat4":"Travellers’ Choice",
+      "t1.quote":"Every dish was exquisite — a real journey of authentic flavours.",
+      "t1.src":"— Guest from Italy, Tripadvisor",
+      "t2.quote":"Thin dough and juicy meat — pure delight.",
+      "t2.src":"— On the manti, Tripadvisor",
+      "t3.quote":"A fabulous garden where, even in summer, it stays cool.",
+      "t3.src":"— On the courtyard, Tripadvisor",
+
+      "visit.eyebrow":"Find Us",
+      "visit.title":"Come for dinner. <em>Stay for the music.</em>",
+      "visit.cardTitle":"Hours & Contact",
+      "visit.openLabel":"Open Daily",
+      "visit.resLabel":"Reservations",
+      "visit.emailLabel":"Email",
+      "visit.addrLabel":"Address",
+      "visit.addr":"ul. Mahmuda Tarabi 22<br/>Yakkasaray District, Tashkent",
+      "map.place":"Caravan",
+      "map.addr":"ul. Mahmuda Tarabi 22<br/>Yakkasaray District, Tashkent",
+      "map.cta":"Open in Google Maps",
+
+      "final.eyebrow":"Tonight at Caravan",
+      "final.title":"A table by the courtyard, the smell of <em>plov from the kazan</em>, and the first notes of the dutar.",
+      "final.p":"Reservations are recommended on weekends. We answer the phone in Russian, English and Uzbek.",
+      "final.cta1":"Call +998 78 150 75 55",
+      "final.cta2":"Email Reservations",
+
+      "footer.about":"Uzbekistan’s first national-cuisine restaurant. Serving plov, lagman and live folk music to Tashkent since 1999.",
+      "footer.visitTitle":"Visit",
+      "footer.addr1":"ul. Mahmuda Tarabi 22",
+      "footer.addr2":"Yakkasaray District",
+      "footer.addr3":"Tashkent, Uzbekistan",
+      "footer.daily":"Daily · 11:00 — 02:00",
+      "footer.contactTitle":"Contact",
+      "footer.openMaps":"Open in Google Maps →",
+      "footer.copy":"Caravan Restaurant · Tashkent",
+      "footer.note":"Reservations recommended on weekends"
+    },
+
+    ru: {
+      "brand":"Караван",
+      "nav.story":"О нас",
+      "nav.menu":"Меню",
+      "nav.spaces":"Залы",
+      "nav.visit":"Контакты",
+      "nav.cta":"Забронировать стол",
+
+      "hero.eyebrow":"Ташкент · Яккасарайский район · С 1999 года",
+      "hero.title":"<em>Первый ресторан национальной кухни</em> Узбекистана — место встречи путешественников, гостей и их историй.",
+      "hero.lede":"Двадцать пять лет плова, лагмана, шашлыка и живой народной музыки — во дворе, построенном в духе традиционной узбекской архитектуры, в самом сердце Ташкента.",
+      "hero.cta1":"Забронировать стол",
+      "hero.cta2":"Меню",
+      "hero.meta1":"<strong>Сегодня открыто</strong> · 11:00 – 02:00",
+      "hero.meta2":"<strong>4.2 ★</strong> · 700+ отзывов на Tripadvisor",
+      "hero.meta3":"<strong>Travellers’ Choice</strong> · 2025",
+
+      "card.est":"— Основан —",
+      "card.label":"Двадцать пять лет гостеприимства",
+      "card.badge":"<b>4.2 / 5</b> · 713 отзывов на Tripadvisor · #15 из 939 в Ташкенте",
+
+      "story.eyebrow":"Наша история",
+      "story.title":"Первый ресторан <em>национальной кухни</em> в Ташкенте.",
+      "story.p1":"Караван открыл свои двери в 1999 году — в то время, когда узбекскую кухню такого уровня редко можно было встретить за пределами семейного дома. Идея была проста: взять блюда, которые узнал бы любой путник на Великом шёлковом пути, и подавать их в достойной обстановке.",
+      "story.p2":"Двадцать пять лет спустя двор по-прежнему полон. Лагман, тянутый вручную, медленно томлёный плов, шашлык на открытом огне и шурпа из казана готовятся так же, как и всегда. Живая музыка переходит от узбекского фольклора к этно-фьюжн-джазу и ambient-мелодиям — её исполняют музыканты, известные далеко за пределами Узбекистана.",
+      "story.p3":"Мы — отчасти ресторан, отчасти музей узбекского прикладного искусства: традиционные ковры, риштанская керамика, авторская посуда и залы, названные в честь ремёсел, которые их вдохновили.",
+      "story.stat1":"Лет гостеприимства",
+      "story.stat2":"Языка обслуживания",
+
+      "menu.eyebrow":"За нашим столом",
+      "menu.title":"Избранные блюда <em>из нашего казана</em>.",
+      "menu.intro":"Подборка блюд, которые Караван подаёт с самого первого дня. Полное меню представлено на трёх языках и обновляется по сезонам.",
+      "dish.plov.name":"Плов",
+      "dish.plov.desc":"Узбекский плов с нежной бараниной, сладкой морковью и рисом — томится в казане.",
+      "dish.lagman.name":"Лагман",
+      "dish.lagman.desc":"Тянутая вручную лапша в насыщенном пряном бульоне с говядиной ручной нарезки и овощами.",
+      "dish.shashlik.name":"Шашлык",
+      "dish.shashlik.desc":"Шашлык на открытом огне — баранина, говядина и курица, с луком и сумахом.",
+      "dish.shurpa.name":"Шурпа",
+      "dish.shurpa.desc":"Густая шурпа из баранины, томлёная на медленном огне, с картофелем, морковью, томатом и свежей зеленью.",
+      "dish.manti.name":"Манты",
+      "dish.manti.desc":"Манты на пару — «тонкое тесто и сочное мясо», как говорят гости.",
+      "dish.non.name":"Лепёшка из тандыра",
+      "dish.non.desc":"Свежеиспечённая узбекская лепёшка, подаётся тёплой. Самый популярный гарнир за каждым столом.",
+      "tag.signature":"Фирменное",
+      "tag.house":"От повара",
+      "tag.grill":"Гриль",
+      "tag.kazan":"Казан",
+      "tag.steamed":"На пару",
+      "tag.bakery":"Тандыр",
+      "menu.cta":"Позвонить для бронирования · +998 78 150 75 55",
+      "menu.note":"Полное меню доступно на русском, английском и узбекском.",
+
+      "spaces.eyebrow":"Наш дом",
+      "spaces.title":"Шесть залов. <em>Один двор.</em>",
+      "spaces.intro":"От тихого столика на двоих под деревьями до отдельного зала для торжеств — Караван построен как традиционный узбекский дом, комната за комнатой.",
+      "space.courtyard.name":"Двор",
+      "space.courtyard.desc":"Места под открытым небом, под деревьями. Прохладно даже в ташкентский зной — любимое место постоянных гостей.",
+      "space.rishtan.name":"Риштанский зал",
+      "space.rishtan.desc":"Назван в честь легендарной керамической традиции Ферганской долины. Стены украшены ручной росписью в бело-голубой палитре.",
+      "space.vip.name":"Терраса и VIP",
+      "space.vip.desc":"Живая музыка каждый вечер. Отдельный VIP-зал и второй этаж для частных мероприятий и банкетов.",
+
+      "proof.eyebrow":"Гости и отзывы",
+      "proof.title":"Двадцать пять лет <em>полных столов</em>.",
+      "proof.stat1":"Рейтинг Tripadvisor",
+      "proof.stat2":"Проверенных отзывов",
+      "proof.stat3":"из 939 в Ташкенте",
+      "proof.stat4":"Travellers’ Choice",
+      "t1.quote":"Каждое блюдо было изысканным — настоящее путешествие в мир аутентичных вкусов.",
+      "t1.src":"— Гость из Италии, Tripadvisor",
+      "t2.quote":"Тонкое тесто и сочное мясо — настоящее наслаждение.",
+      "t2.src":"— О мантах, Tripadvisor",
+      "t3.quote":"Чудесный сад, где даже летом остаётся прохладно.",
+      "t3.src":"— О дворике, Tripadvisor",
+
+      "visit.eyebrow":"Как нас найти",
+      "visit.title":"Приходите на ужин. <em>Останьтесь ради музыки.</em>",
+      "visit.cardTitle":"Часы работы и контакты",
+      "visit.openLabel":"Работаем ежедневно",
+      "visit.resLabel":"Бронирование",
+      "visit.emailLabel":"Эл. почта",
+      "visit.addrLabel":"Адрес",
+      "visit.addr":"ул. Махмуда Тараби, 22<br/>Яккасарайский район, Ташкент",
+      "map.place":"Караван",
+      "map.addr":"ул. Махмуда Тараби, 22<br/>Яккасарайский район, Ташкент",
+      "map.cta":"Открыть в Google Картах",
+
+      "final.eyebrow":"Сегодня вечером в Караване",
+      "final.title":"Стол во дворе, аромат <em>плова из казана</em> и первые ноты дутара.",
+      "final.p":"По выходным рекомендуем бронировать заранее. Отвечаем на русском, английском и узбекском.",
+      "final.cta1":"Позвонить +998 78 150 75 55",
+      "final.cta2":"Написать на почту",
+
+      "footer.about":"Первый ресторан национальной кухни Узбекистана. Плов, лагман и живая народная музыка в Ташкенте с 1999 года.",
+      "footer.visitTitle":"Адрес",
+      "footer.addr1":"ул. Махмуда Тараби, 22",
+      "footer.addr2":"Яккасарайский район",
+      "footer.addr3":"Ташкент, Узбекистан",
+      "footer.daily":"Ежедневно · 11:00 — 02:00",
+      "footer.contactTitle":"Контакты",
+      "footer.openMaps":"Открыть в Google Картах →",
+      "footer.copy":"Ресторан Караван · Ташкент",
+      "footer.note":"По выходным рекомендуем бронирование"
+    },
+
+    uz: {
+      "brand":"Karvon",
+      "nav.story":"Biz haqimizda",
+      "nav.menu":"Menyu",
+      "nav.spaces":"Zallar",
+      "nav.visit":"Aloqa",
+      "nav.cta":"Stol band qilish",
+
+      "hero.eyebrow":"Toshkent · Yakkasaroy tumani · 1999-yildan beri",
+      "hero.title":"O‘zbekistonning <em>birinchi milliy taomlar restorani</em> — sayohatchilar, mehmonlar va ularning hikoyalari uchrashadigan joy.",
+      "hero.lede":"Yigirma besh yillik palov, lag‘mon, shashlik va jonli xalq musiqasi — Toshkent markazida, an’anaviy o‘zbek me’morchiligi ruhida qurilgan hovlida.",
+      "hero.cta1":"Stol band qilish",
+      "hero.cta2":"Menyu",
+      "hero.meta1":"<strong>Bugun ochiq</strong> · 11:00 – 02:00",
+      "hero.meta2":"<strong>4.2 ★</strong> · Tripadvisor’da 700+ sharh",
+      "hero.meta3":"<strong>Travellers’ Choice</strong> · 2025",
+
+      "card.est":"— Tashkil etilgan —",
+      "card.label":"Yigirma besh yillik mehmondo‘stlik",
+      "card.badge":"<b>4.2 / 5</b> · Tripadvisor’da 713 sharh · Toshkentdagi 939 ta restorandan #15",
+
+      "story.eyebrow":"Bizning tariximiz",
+      "story.title":"Toshkentdagi birinchi <em>milliy taomlar</em> restorani.",
+      "story.p1":"Karvon o‘z eshiklarini 1999-yilda ochgan — bu darajadagi o‘zbek taomlarini uy sharoitidan tashqarida kamdan-kam topish mumkin bo‘lgan paytda. G‘oya oddiy edi: Buyuk Ipak yo‘lidagi sayohatchilar tanigan taomlarni olib, ularga munosib joyda taqdim etish.",
+      "story.p2":"Yigirma besh yildan keyin ham hovli to‘la. Qo‘lda cho‘zilgan lag‘mon, sekin pishirilgan palov, ochiq olovda shashlik va qozondan shurpa — hammasi avvalgidek tayyorlanadi. Jonli musiqa o‘zbek folklori, etno-fusion jaz va ambient ohanglari orasida o‘zgarib turadi — ularni O‘zbekistondan tashqarida ham mashhur bo‘lgan musiqachilar ijro etadi.",
+      "story.p3":"Biz ham restoran, ham o‘zbek amaliy san’ati muzeyimiz: an’anaviy gilamlar, Rishton kulolligi, o‘ziga xos sopol idishlar va ularni ilhomlantirgan hunarlar nomi bilan atalgan zallar.",
+      "story.stat1":"Yil mehmondo‘stlik",
+      "story.stat2":"Xizmat tili",
+
+      "menu.eyebrow":"Bizning dasturxon",
+      "menu.title":"<em>Qozonimizdan</em> tanlangan taomlar.",
+      "menu.intro":"Karvon ochilgan kunidan beri taqdim etib kelayotgan taomlardan tanlov. To‘liq menyu uch tilda taqdim etiladi va mavsumiy yangilanadi.",
+      "dish.plov.name":"Palov",
+      "dish.plov.desc":"Mayin qo‘y go‘shti, shirin sabzi va guruchli o‘zbek palovi — qozonda sekin pishirilgan.",
+      "dish.lagman.name":"Lag‘mon",
+      "dish.lagman.desc":"Qo‘lda cho‘zilgan ugra, mazali ziravorli sho‘rva, qo‘lda kesilgan mol go‘shti va sabzavotlar bilan.",
+      "dish.shashlik.name":"Shashlik",
+      "dish.shashlik.desc":"Ochiq olovda pishirilgan shashlik — qo‘y, mol va tovuq go‘shti, piyoz va sumax bilan.",
+      "dish.shurpa.name":"Shurpa",
+      "dish.shurpa.desc":"Sekin qaynatilgan qo‘y go‘shtli quyuq shurpa — kartoshka, sabzi, pomidor va ko‘kat bilan.",
+      "dish.manti.name":"Manti",
+      "dish.manti.desc":"Bug‘da pishirilgan manti — mehmonlar aytganidek, “yupqa xamir va sersuv go‘sht”.",
+      "dish.non.name":"Tandir noni",
+      "dish.non.desc":"Yangi pishirilgan o‘zbek noni, iliq holda taqdim etiladi. Har bir dasturxondagi eng ko‘p so‘raladigan taom.",
+      "tag.signature":"Firmaviy",
+      "tag.house":"Oshpazdan",
+      "tag.grill":"Grill",
+      "tag.kazan":"Qozon",
+      "tag.steamed":"Bug‘da",
+      "tag.bakery":"Tandir",
+      "menu.cta":"Bron uchun qo‘ng‘iroq qiling · +998 78 150 75 55",
+      "menu.note":"To‘liq menyu rus, ingliz va o‘zbek tillarida mavjud.",
+
+      "spaces.eyebrow":"Bizning uy",
+      "spaces.title":"Olti zal. <em>Bitta hovli.</em>",
+      "spaces.intro":"Daraxtlar tagidagi ikki kishilik tinch stoldan tortib, bayramlar uchun alohida zalgacha — Karvon an’anaviy o‘zbek uyi singari, xona-xona qurilgan.",
+      "space.courtyard.name":"Hovli",
+      "space.courtyard.desc":"Daraxtlar tagidagi ochiq joylar. Toshkent yozida ham salqin — doimiy mehmonlarning sevimli joyi.",
+      "space.rishtan.name":"Rishton zali",
+      "space.rishtan.desc":"Farg‘ona vodiysining afsonaviy kulolchilik an’anasi sharafiga atalgan. Devorlari qo‘lda chizilgan ko‘k-oq sirli plitalar bilan bezatilgan.",
+      "space.vip.name":"Terrasa va VIP",
+      "space.vip.desc":"Har kuni kechqurun jonli musiqa. Alohida VIP zal va ikkinchi qavat — shaxsiy tadbirlar va bazmlar uchun.",
+
+      "proof.eyebrow":"Mehmonlar va sharhlar",
+      "proof.title":"Yigirma besh yillik <em>to‘la dasturxonlar</em>.",
+      "proof.stat1":"Tripadvisor reytingi",
+      "proof.stat2":"Tasdiqlangan sharh",
+      "proof.stat3":"Toshkentdagi 939 tadan",
+      "proof.stat4":"Travellers’ Choice",
+      "t1.quote":"Har bir taom nafis edi — haqiqiy ta’mlar olamiga sayohat.",
+      "t1.src":"— Italiyalik mehmon, Tripadvisor",
+      "t2.quote":"Yupqa xamir va sersuv go‘sht — chinakam zavq.",
+      "t2.src":"— Manti haqida, Tripadvisor",
+      "t3.quote":"Ajoyib bog‘ — yozda ham salqin saqlanadi.",
+      "t3.src":"— Hovli haqida, Tripadvisor",
+
+      "visit.eyebrow":"Bizni qanday topish",
+      "visit.title":"Kechki ovqatga keling. <em>Musiqa uchun qoling.</em>",
+      "visit.cardTitle":"Ish vaqti va aloqa",
+      "visit.openLabel":"Har kuni ochiq",
+      "visit.resLabel":"Bron qilish",
+      "visit.emailLabel":"Elektron pochta",
+      "visit.addrLabel":"Manzil",
+      "visit.addr":"Mahmud Tarobiy ko‘chasi, 22<br/>Yakkasaroy tumani, Toshkent",
+      "map.place":"Karvon",
+      "map.addr":"Mahmud Tarobiy ko‘chasi, 22<br/>Yakkasaroy tumani, Toshkent",
+      "map.cta":"Google Xaritalarda ochish",
+
+      "final.eyebrow":"Bugun kechqurun Karvonda",
+      "final.title":"Hovli yonidagi stol, <em>qozondan kelayotgan palov hidi</em> va dutorning birinchi ohanglari.",
+      "final.p":"Dam olish kunlari oldindan bron qilishni tavsiya qilamiz. Rus, ingliz va o‘zbek tillarida javob beramiz.",
+      "final.cta1":"Qo‘ng‘iroq qiling +998 78 150 75 55",
+      "final.cta2":"Bron uchun yozing",
+
+      "footer.about":"O‘zbekistonning birinchi milliy taomlar restorani. 1999-yildan beri Toshkentga palov, lag‘mon va jonli xalq musiqasini taqdim etib kelmoqda.",
+      "footer.visitTitle":"Manzil",
+      "footer.addr1":"Mahmud Tarobiy ko‘chasi, 22",
+      "footer.addr2":"Yakkasaroy tumani",
+      "footer.addr3":"Toshkent, O‘zbekiston",
+      "footer.daily":"Har kuni · 11:00 — 02:00",
+      "footer.contactTitle":"Aloqa",
+      "footer.openMaps":"Google Xaritalarda ochish →",
+      "footer.copy":"Karvon restorani · Toshkent",
+      "footer.note":"Dam olish kunlari bron qilish tavsiya etiladi"
+    }
+  };
+
+  /* ---------- I18N ENGINE ---------- */
+  const SUPPORTED = ['en','ru','uz'];
+
+  function pickInitialLang(){
+    const saved = localStorage.getItem('caravan_lang');
+    if (saved && SUPPORTED.includes(saved)) return saved;
+    const nav = (navigator.language || 'en').toLowerCase();
+    if (nav.startsWith('ru')) return 'ru';
+    if (nav.startsWith('uz')) return 'uz';
+    return 'en';
+  }
+
+  function applyLang(lang){
+    if (!SUPPORTED.includes(lang)) lang = 'en';
+    const dict = I18N[lang];
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] != null) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (dict[key] != null) el.innerHTML = dict[key];
+    });
+
+    // localized title & meta description
+    if (lang === 'ru') {
+      document.title = 'Караван — Узбекская кухня в Ташкенте с 1999 года';
+      setMetaDesc('Караван — первый ресторан национальной кухни Узбекистана. Плов, лагман, шашлык и живая музыка в самом сердце Ташкента, с 1999 года.');
+    } else if (lang === 'uz') {
+      document.title = 'Karvon — 1999-yildan beri Toshkentdagi o‘zbek taomlari';
+      setMetaDesc('Karvon — O‘zbekistonning birinchi milliy taomlar restorani. 1999-yildan beri Toshkent markazida palov, lag‘mon, shashlik va jonli musiqa.');
+    } else {
+      document.title = 'Caravan — Authentic Uzbek Cuisine in Tashkent since 1999';
+      setMetaDesc("Caravan — Uzbekistan's first national-cuisine restaurant since 1999. Authentic plov, lagman, shashlik and live folk music in the heart of Tashkent.");
+    }
+
+    // toggle active button
+    document.querySelectorAll('.lang-switch button').forEach(b => {
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+
+    localStorage.setItem('caravan_lang', lang);
+  }
+
+  function setMetaDesc(text){
+    const m = document.querySelector('meta[name="description"]');
+    if (m) m.setAttribute('content', text);
+  }
+
+  /* ---------- WIRING ---------- */
+  document.querySelectorAll('.lang-switch button').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
+  });
+  applyLang(pickInitialLang());
+
+  /* ---------- MISC ---------- */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const navBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  navBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.addEventListener('click', e => {
+    if (e.target.tagName === 'A') navLinks.classList.remove('open');
+  });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const navEl = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    navEl.style.background = window.scrollY > 40 ? 'rgba(14,10,7,.92)' : 'rgba(14,10,7,.72)';
+  }, { passive: true });
+</script>
+</body>
+</html>
