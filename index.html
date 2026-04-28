@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Caravan — Where Tashkent Plates Its Plov · Since 1999</title>
+<meta name="description" content="The first Uzbek national-cuisine restaurant in Tashkent. Plov by ancient method, hand-pulled lagman, tandoor classics. Travelers' Choice 2025. Reservations open.">
+<meta name="theme-color" content="#0d0908">
+<meta property="og:title" content="Caravan — Uzbek Cuisine Since 1999">
+<meta property="og:description" content="Tashkent's original Uzbek cuisine workshop. 1,280+ verified reviews. Open daily 11:00–02:00.">
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:image" content="https://static.tildacdn.one/tild3064-3830-4031-a531-653035383334/photo_2024-07-18_041.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://static.tildacdn.one" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Caravan","address":{"@type":"PostalAddress","streetAddress":"Abdulla Kahhar 22","addressLocality":"Tashkent","addressRegion":"Yakkasaray","postalCode":"100100","addressCountry":"UZ"},"telephone":"+998781507555","email":"info@caravangroup.uz","servesCuisine":"Uzbek","priceRange":"$$-$$$","openingHours":"Mo-Su 11:00-02:00","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.4","reviewCount":"1280"},"award":"TripAdvisor Travelers' Choice 2025"}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0908; --ink:#f0e6d2; --muted:#8b7d68; --gold:#d4a843; --gold-2:#e9c269;
+  --persian:#1e3a5f; --line:rgba(240,230,210,.1); --card:#16110d;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --maxw:1280px;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+html{-webkit-text-size-adjust:100%;scroll-behavior:auto}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;line-height:1.6;font-weight:400;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"ss01","cv11";
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;border:none;background:none;color:inherit;cursor:pointer}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:300;line-height:1.02;letter-spacing:-.025em}
+em{font-family:var(--serif);font-style:italic;font-weight:300}
+
+/* Film grain overlay */
+body::before{
+  content:"";position:fixed;inset:-100%;z-index:1000;pointer-events:none;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/></svg>");
+  opacity:.05;mix-blend-mode:overlay;animation:grain 8s steps(10) infinite;
+}
+@keyframes grain{
+  0%,to{transform:translate(0,0)}10%{transform:translate(-5%,-5%)}20%{transform:translate(-10%,5%)}30%{transform:translate(5%,-10%)}
+  40%{transform:translate(-5%,15%)}50%{transform:translate(-10%,5%)}60%{transform:translate(15%,0)}70%{transform:translate(0,10%)}80%{transform:translate(-15%,0)}90%{transform:translate(10%,5%)}
+}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+@media(max-width:680px){.wrap{padding:0 20px}}
+.eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:500;font-family:var(--sans)}
+
+/* ============ LOADER ============ */
+.loader{position:fixed;inset:0;z-index:9999;background:#0d0908;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:30px;color:var(--ink)}
+.loader-text{font-family:var(--serif);font-size:clamp(40px,9vw,120px);font-weight:300;letter-spacing:-.04em;overflow:hidden;height:1.05em;line-height:1.05}
+.loader-text span{display:inline-block;transform:translateY(110%);opacity:0;animation:up 1s var(--ease-out) forwards}
+.loader-text span:nth-child(1){animation-delay:.05s}
+.loader-text span:nth-child(2){animation-delay:.13s}
+.loader-text span:nth-child(3){animation-delay:.21s}
+.loader-text span:nth-child(4){animation-delay:.29s}
+.loader-text span:nth-child(5){animation-delay:.37s}
+.loader-text span:nth-child(6){animation-delay:.45s}
+.loader-text span:nth-child(7){animation-delay:.53s}
+.loader-tag{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);opacity:0;animation:fadein .8s var(--ease-out) .9s forwards}
+.loader-bar{position:absolute;bottom:0;left:0;height:2px;background:var(--gold);width:0;animation:bar 1.4s var(--ease-out) forwards}
+@keyframes up{to{transform:translateY(0);opacity:1}}
+@keyframes fadein{to{opacity:.7}}
+@keyframes bar{to{width:100%}}
+.loader.gone{transform:translateY(-101%);transition:transform 1.1s cubic-bezier(.86,0,.07,1)}
+
+/* ============ CURSOR ============ */
+.cursor{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:998;mix-blend-mode:difference;will-change:transform}
+.cursor.big{width:64px;height:64px;background:rgba(212,168,67,.4)}
+.cursor{transition:width .3s var(--ease-out), height .3s var(--ease-out), background .3s}
+@media(hover:none){.cursor{display:none}}
+
+/* ============ NAV ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:20px 28px;display:flex;justify-content:space-between;align-items:center;mix-blend-mode:difference;color:#fff}
+.nav .brand{font-family:var(--serif);font-size:24px;font-weight:400;letter-spacing:.01em;line-height:1}
+.nav .brand em{color:#fff}
+.nav-links{display:none;gap:36px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.nav-links a{position:relative;padding:6px 0;transition:color .3s}
+.nav-links a:hover{color:#fff}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:currentColor;transition:width .4s var(--ease-out)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{font-size:12px;letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(255,255,255,.4);padding:12px 22px;border-radius:999px;transition:all .3s}
+.nav-cta:hover{background:#fff;color:#000;border-color:#fff}
+@media(min-width:980px){.nav-links{display:flex}}
+.scroll-progress{position:fixed;top:0;left:0;height:2px;background:var(--gold);width:0;z-index:60}
+
+/* ============ HERO with clipPath reveal ============ */
+.hero-wrap{position:relative;height:200vh;width:100%}
+.hero-pin{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;will-change:clip-path,background-size,opacity;
+  background-image:url('https://static.tildacdn.one/tild3064-3830-4031-a531-653035383334/photo_2024-07-18_041.jpeg'),url('https://images.unsplash.com/photo-1745808977891-0c820f46f543?q=80&w=2000');
+  clip-path:polygon(20% 22%,80% 22%,80% 78%,20% 78%);
+}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,9,8,.45) 0%,rgba(13,9,8,.1) 30%,rgba(13,9,8,.7) 100%)}
+.hero-content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:0 28px 80px;color:#fff;pointer-events:none}
+.hero-content .wrap{pointer-events:auto}
+.hero-meta-top{position:absolute;top:120px;left:28px;right:28px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.hero h1{font-size:clamp(48px,11.5vw,200px);font-weight:300;letter-spacing:-.045em;color:#fff;margin-bottom:24px;mix-blend-mode:difference}
+.hero h1 .word{display:inline-block;overflow:hidden;line-height:.95;vertical-align:bottom}
+.hero h1 .word > span{display:inline-block;transform:translateY(110%);transition:transform 1.2s var(--ease-out)}
+.hero.ready h1 .word > span{transform:translateY(0)}
+.hero h1 .word:nth-of-type(1) > span{transition-delay:1.5s}
+.hero h1 .word:nth-of-type(2) > span{transition-delay:1.6s}
+.hero h1 .word:nth-of-type(3) > span{transition-delay:1.7s}
+.hero h1 .word:nth-of-type(4) > span{transition-delay:1.8s}
+.hero h1 .word:nth-of-type(5) > span{transition-delay:1.9s}
+.hero h1 em{color:var(--gold-2)}
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:30px;opacity:0;transform:translateY(20px);transition:all 1s var(--ease-out) 2.3s}
+.hero.ready .hero-bottom{opacity:1;transform:none}
+.hero-lead{max-width:480px;font-size:16px;color:rgba(255,255,255,.85);line-height:1.65}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:18px 30px;border-radius:999px;font-weight:500;font-size:13px;letter-spacing:.15em;text-transform:uppercase;border:1px solid transparent;position:relative;overflow:hidden;transition:transform .35s var(--ease-out)}
+.btn-primary{background:var(--gold);color:#000}
+.btn-primary:hover{background:var(--gold-2);transform:translateY(-3px)}
+.btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.btn-ghost:hover{background:#fff;color:#000;border-color:#fff;transform:translateY(-3px)}
+.btn .arr{transition:transform .35s var(--ease-out)}
+.btn:hover .arr{transform:translateX(5px)}
+.scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5);display:flex;flex-direction:column;align-items:center;gap:10px;z-index:3;pointer-events:none}
+.scroll-hint::after{content:"";width:1px;height:40px;background:rgba(255,255,255,.4);animation:sh 2s var(--ease-out) infinite}
+@keyframes sh{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.01%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* Floating award badge */
+.badge{position:absolute;top:20vh;right:28px;background:rgba(13,9,8,.5);backdrop-filter:blur(20px);border:1px solid rgba(212,168,67,.3);padding:18px 22px;border-radius:14px;color:#fff;font-size:11px;letter-spacing:.15em;text-transform:uppercase;z-index:3;display:flex;align-items:center;gap:14px;max-width:240px;opacity:0;transform:translateY(-12px);animation:badge 1s var(--ease-out) 2.6s forwards}
+@keyframes badge{to{opacity:1;transform:none}}
+.badge .ic{width:28px;height:28px;border-radius:50%;background:var(--gold);color:#000;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-family:var(--serif);font-weight:600}
+.badge b{display:block;color:var(--gold);font-size:12px;letter-spacing:.18em;margin-bottom:3px}
+
+/* ============ MARQUEE (image+text) ============ */
+.marquee{padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;background:#0a0706}
+.marquee-track{display:inline-flex;align-items:center;gap:0;animation:marq 35s linear infinite;font-family:var(--serif);font-size:clamp(32px,6vw,72px);font-weight:300;font-style:italic;color:var(--ink)}
+.marquee-track .item{padding:0 30px;display:inline-flex;align-items:center;gap:30px}
+.marquee-track .item::after{content:"✦";color:var(--gold);font-style:normal;font-weight:300;margin-left:30px}
+.marquee-track .pic{width:80px;height:60px;border-radius:6px;overflow:hidden;flex-shrink:0;display:inline-block}
+.marquee-track .pic img{width:100%;height:100%;object-fit:cover}
+@keyframes marq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ============ SECTIONS ============ */
+section{position:relative;padding:120px 0}
+@media(max-width:680px){section{padding:80px 0}}
+.section-head{display:flex;flex-direction:column;gap:20px;margin-bottom:80px;max-width:780px}
+.section-head h2{font-size:clamp(40px,7vw,96px);font-weight:300}
+.section-head p{color:var(--muted);max-width:560px;font-size:17px;line-height:1.6}
+.sect-num{position:absolute;top:120px;right:28px;font-family:var(--serif);font-size:14px;font-style:italic;color:var(--muted);font-feature-settings:"ss01"}
+@media(max-width:880px){.sect-num{display:none}}
+
+/* ============ STORY ============ */
+.story{display:grid;gap:60px;align-items:center}
+.story-text{display:flex;flex-direction:column;gap:24px;max-width:560px}
+.story-text h2{font-size:clamp(40px,5.5vw,80px)}
+.story-text p{color:var(--muted);font-size:17px;line-height:1.7}
+.story-text p strong{color:var(--ink);font-weight:500}
+.story-img{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:6px}
+.story-img img{width:100%;height:115%;object-fit:cover;will-change:transform}
+.story-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(13,9,8,.4) 100%)}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:30px}
+.kpi{padding:28px 0;border-top:1px solid var(--line)}
+.kpi b{display:block;font-family:var(--serif);font-size:56px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:8px;font-feature-settings:"ss01"}
+.kpi span{font-size:11px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase}
+@media(min-width:880px){.story{grid-template-columns:1.1fr 1fr;gap:100px}}
+
+/* ============ FULL BLEED QUOTE ============ */
+.bleed{position:relative;height:90vh;min-height:600px;overflow:hidden}
+.bleed img{width:100%;height:120%;object-fit:cover;position:absolute;inset:0;will-change:transform}
+.bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,9,8,.5),rgba(13,9,8,.7))}
+.bleed-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;z-index:2;color:#fff}
+.bleed-text blockquote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(28px,5vw,64px);line-height:1.18;max-width:1000px;letter-spacing:-.015em}
+.bleed-text cite{display:block;margin-top:36px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-style:normal}
+
+/* ============ MENU BENTO ============ */
+.bento{display:grid;gap:14px;grid-template-columns:1fr;grid-auto-rows:minmax(280px,auto)}
+.bento .card{position:relative;overflow:hidden;border-radius:8px;cursor:pointer;background:var(--card);min-height:300px;border:1px solid var(--line);transition:transform .4s var(--ease-out)}
+.bento .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;transition:opacity .8s var(--ease-out), transform 1.4s var(--ease-out);will-change:transform,opacity}
+.bento .card:hover img{opacity:1;transform:scale(1.05)}
+.bento .card .info{position:absolute;inset:0;padding:32px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;z-index:2;background:linear-gradient(180deg,rgba(13,9,8,.1) 30%,rgba(13,9,8,.85) 100%)}
+.bento .card .num{position:absolute;top:24px;right:28px;font-family:var(--serif);font-size:13px;color:rgba(255,255,255,.55);font-style:italic;font-feature-settings:"ss01"}
+.bento .card h3{font-size:32px;font-weight:300;margin-bottom:8px}
+.bento .card h3 em{color:var(--gold-2)}
+.bento .card p{font-size:14px;color:rgba(255,255,255,.72);max-width:380px;line-height:1.55}
+.bento .card .tag{position:absolute;top:24px;left:28px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);background:rgba(13,9,8,.6);backdrop-filter:blur(8px);padding:8px 14px;border-radius:999px;font-weight:500}
+@media(min-width:680px){
+  .bento{grid-template-columns:repeat(6,1fr);gap:14px}
+  .bento .card.lg{grid-column:span 4;grid-row:span 2;min-height:580px}
+  .bento .card.md{grid-column:span 2;grid-row:span 1}
+  .bento .card.sm{grid-column:span 2;grid-row:span 1}
+  .bento .card.wide{grid-column:span 6;min-height:340px}
+}
+@media(min-width:1024px){
+  .bento .card.lg h3{font-size:52px}
+  .bento .card.wide{grid-column:span 4}
+  .bento .card.tall{grid-column:span 2;grid-row:span 2;min-height:580px}
+}
+
+/* ============ SPACES (interactive list) ============ */
+.spaces{position:relative}
+.spaces-list{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line);position:relative;z-index:2}
+.space-row{display:grid;grid-template-columns:80px 1fr auto auto;align-items:center;gap:24px;padding:32px 8px;border-bottom:1px solid var(--line);position:relative;cursor:pointer;transition:padding .5s var(--ease-out)}
+.space-row:hover{padding-left:24px}
+.space-row .num{font-family:var(--serif);font-size:14px;font-style:italic;color:var(--muted);font-feature-settings:"ss01"}
+.space-row h3{font-size:clamp(28px,4.5vw,52px);font-weight:300;color:var(--ink);transition:color .4s}
+.space-row:hover h3{color:var(--gold)}
+.space-row .meta{font-size:13px;color:var(--muted);letter-spacing:.05em;display:none}
+.space-row .arrow{display:none;color:var(--gold);font-size:24px;font-family:var(--serif);transition:transform .4s var(--ease-out)}
+.space-row:hover .arrow{transform:translateX(8px)}
+@media(min-width:680px){.space-row .arrow{display:block}.space-row .meta{display:block}}
+/* hover preview */
+.space-preview{position:fixed;width:280px;height:360px;border-radius:8px;overflow:hidden;pointer-events:none;opacity:0;z-index:5;transition:opacity .3s;will-change:transform;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.space-preview img{width:100%;height:100%;object-fit:cover}
+.space-preview.show{opacity:1}
+@media(hover:none){.space-preview{display:none!important}}
+
+/* ============ REVIEWS ============ */
+.reviews-grid{display:grid;gap:18px;grid-template-columns:1fr}
+.review{padding:36px;background:var(--card);border:1px solid var(--line);border-radius:8px;display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden;transition:all .5s var(--ease-out)}
+.review:hover{transform:translateY(-6px);border-color:var(--gold);background:#1a1410}
+.review::before{content:"\201C";position:absolute;top:-30px;right:20px;font-family:var(--serif);font-size:200px;color:var(--gold);opacity:.08;line-height:1}
+.review .stars{font-size:14px;color:var(--gold);letter-spacing:3px}
+.review p{font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--ink);font-weight:300;font-style:italic;flex:1}
+.review .src{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding-top:18px;border-top:1px solid var(--line)}
+.review .src b{color:var(--gold);font-weight:500}
+@media(min-width:880px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ============ CONTACT ============ */
+.contact-grid{display:grid;gap:30px;grid-template-columns:1fr;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:0}
+.contact-row{display:grid;grid-template-columns:140px 1fr;align-items:baseline;gap:20px;padding:24px 0;border-bottom:1px solid var(--line);transition:padding .4s}
+.contact-row:hover{padding-left:8px}
+.contact-row:first-child{border-top:1px solid var(--line)}
+.contact-row .lbl{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
+.contact-row .val{font-family:var(--serif);font-size:24px;font-weight:300;color:var(--ink);transition:color .3s}
+.contact-row a.val:hover{color:var(--gold)}
+.contact-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+.map-wrap{position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:8px;border:1px solid var(--line)}
+.map-wrap iframe{width:100%;height:100%;border:0;filter:grayscale(.7) brightness(.5) contrast(1.2)}
+@media(min-width:880px){.contact-grid{grid-template-columns:1.2fr 1fr;gap:60px}}
+
+/* ============ FOOTER ============ */
+footer{padding:80px 0 40px;border-top:1px solid var(--line);position:relative}
+.footer-mark{font-family:var(--serif);font-size:clamp(80px,18vw,300px);font-weight:300;line-height:.85;letter-spacing:-.05em;color:var(--ink);margin-bottom:60px;overflow:hidden}
+.footer-mark em{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding-top:30px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);letter-spacing:.05em}
+.lang{display:flex;gap:14px}
+.lang a{color:var(--muted);transition:color .3s}
+.lang a.active{color:var(--ink)}
+.credits{font-size:11px;color:var(--muted);opacity:.55;margin-top:14px;line-height:1.6;max-width:580px}
+
+/* ============ STICKY MOBILE CTA ============ */
+.mcta{position:fixed;bottom:0;left:0;right:0;z-index:40;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.mcta a{padding:16px;text-align:center;background:rgba(13,9,8,.95);font-size:13px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;backdrop-filter:blur(10px)}
+.mcta a.book{background:var(--gold);color:#000}
+@media(min-width:980px){.mcta{display:none}}
+@media(max-width:979px){body{padding-bottom:54px}}
+
+/* ============ REVEAL utility ============ */
+.r{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease-out),transform 1s var(--ease-out)}
+.r.in{opacity:1;transform:none}
+.rs > *{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.rs.in > *:nth-child(1){transition-delay:0s}
+.rs.in > *:nth-child(2){transition-delay:.08s}
+.rs.in > *:nth-child(3){transition-delay:.16s}
+.rs.in > *:nth-child(4){transition-delay:.24s}
+.rs.in > *:nth-child(5){transition-delay:.32s}
+.rs.in > *:nth-child(6){transition-delay:.4s}
+.rs.in > *{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .hero-bg{clip-path:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <div class="loader-text"><span>C</span><span>a</span><span>r</span><span>a</span><span>v</span><span>a</span><span>n</span></div>
+  <div class="loader-tag">Tashkent · Since 1999</div>
+  <div class="loader-bar"></div>
+</div>
+
+<div class="cursor" id="cursor"></div>
+<div class="scroll-progress" id="progress"></div>
+
+<nav class="nav">
+  <a href="#" class="brand">Cara<em>van</em></a>
+  <div class="nav-links">
+    <a href="#story">Story</a>
+    <a href="#menu">Menu</a>
+    <a href="#spaces">Spaces</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#visit">Visit</a>
+  </div>
+  <a href="#book" class="nav-cta" data-c>Reserve</a>
+</nav>
+
+<section class="hero-wrap">
+  <div class="hero-pin">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero" id="hero">
+      <div class="hero-content">
+        <div class="hero-meta-top">
+          <span>Tashkent · Yakkasaray</span>
+          <span>Est. 1999</span>
+        </div>
+        <div class="badge">
+          <div class="ic">★</div>
+          <div><b>Travelers' Choice</b>2025 · TripAdvisor</div>
+        </div>
+        <div class="wrap">
+          <h1>
+            <span class="word"><span>Where</span></span>&nbsp;
+            <span class="word"><span>Tashkent</span></span><br>
+            <span class="word"><span>plates</span></span>&nbsp;
+            <span class="word"><span>its</span></span>&nbsp;
+            <span class="word"><span><em>plov.</em></span></span>
+          </h1>
+          <div class="hero-bottom">
+            <p class="hero-lead">A family-run house serving Uzbek national cuisine the way it was made before us — slow, by hand, around an open courtyard with live music every night.</p>
+            <div class="hero-cta">
+              <a href="#book" class="btn btn-primary" data-c>Reserve a table <span class="arr">→</span></a>
+              <a href="tel:+998781507555" class="btn btn-ghost" data-c>Call now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-hint">Scroll</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="item"><span class="pic"><img loading="lazy" src="https://static.tildacdn.one/tild3132-6635-4832-a365-373964613237/photo_2024-07-18_041.jpeg" alt=""></span>Plov</span>
+    <span class="item">Hand-pulled <em>Lagman</em></span>
+    <span class="item"><span class="pic"><img loading="lazy" src="https://static.tildacdn.one/tild3136-3039-4564-b833-653531376536/photo_2024-07-18_040.jpeg" alt=""></span>Tandoor Samsa</span>
+    <span class="item">Lamb <em>Shashlik</em></span>
+    <span class="item"><span class="pic"><img loading="lazy" src="https://static.tildacdn.one/tild3236-6666-4832-b364-656437326639/photo_2024-07-18_040.jpeg" alt=""></span>Shorpa</span>
+    <span class="item">Manti</span>
+    <span class="item"><span class="pic"><img loading="lazy" src="https://static.tildacdn.one/tild3461-3532-4033-a331-623166646637/photo_2024-07-18_041.jpeg" alt=""></span>Plov</span>
+    <span class="item">Hand-pulled <em>Lagman</em></span>
+    <span class="item"><span class="pic"><img loading="lazy" src="https://static.tildacdn.one/tild3631-6431-4663-a330-306232623465/photo_2024-07-18_040.jpeg" alt=""></span>Tandoor Samsa</span>
+    <span class="item">Lamb <em>Shashlik</em></span>
+    <span class="item">Shorpa</span><span class="item">Manti</span>
+  </div>
+</div>
+
+<section id="story">
+  <div class="sect-num">— 01 / Story</div>
+  <div class="wrap">
+    <div class="story">
+      <div class="story-text r">
+        <span class="eyebrow">Our story · 26 years</span>
+        <h2>The first kitchen in Tashkent dedicated to Uzbek <em>national cuisine.</em></h2>
+        <p>When <strong>Caravan</strong> opened its doors in 1999, no other restaurant in the city had committed itself entirely to Uzbek tradition. The space — a traditional family house in Yakkasaray — was built around a courtyard, hand-laid Rishtan ceramics, woven carpets and an artistic wrought-iron staircase that guests still photograph today.</p>
+        <p>More than two decades later, the recipes haven't moved. <strong>Plov</strong> by ancient method. Hand-pulled <strong>lagman</strong>. Tandoor <strong>samsa</strong>. Slow-simmered <strong>shorpa</strong>. The chefs you taste today trained under the chefs who opened the house.</p>
+        <div class="kpis rs">
+          <div class="kpi"><b data-count="1999">1999</b><span>Founded in Yakkasaray</span></div>
+          <div class="kpi"><b data-count="1280" data-suf="+">0+</b><span>Verified guest reviews</span></div>
+          <div class="kpi"><b data-count="44" data-decimals="1" data-suf="★">0★</b><span>Average across platforms</span></div>
+          <div class="kpi"><b data-count="15" data-pre="#">#0</b><span>of 939 in Tashkent</span></div>
+        </div>
+      </div>
+      <div class="story-img r" data-parallax>
+        <img loading="lazy" src="https://static.tildacdn.one/tild3739-3165-4235-a230-363338396133/1626721766_1-kartink.jpg" alt="Caravan restaurant interior">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="bleed" data-parallax-bleed>
+  <img loading="lazy" src="https://images.unsplash.com/photo-1773958731741-a11cc5405652?q=80&w=2400" alt="A traditional table spread of Central Asian food">
+  <div class="bleed-text">
+    <blockquote>"Plov, kebabs and mantas with consistent flavor and authenticity. The fabulous garden courtyard with a wrought-iron staircase, rustic artistry and live music — the atmosphere is enchanting."</blockquote>
+    <cite>— TripAdvisor · Travelers' Choice 2025 · 713 reviews</cite>
+  </div>
+</div>
+
+<section id="menu">
+  <div class="sect-num">— 02 / Menu</div>
+  <div class="wrap">
+    <div class="section-head r">
+      <span class="eyebrow">The menu</span>
+      <h2>Cooked the <em>old way.</em><br>Plated for today.</h2>
+      <p>A short look at what Caravan is known for. Full menu in the restaurant or by request — vegan options confirmed on TripAdvisor's listing.</p>
+    </div>
+    <div class="bento">
+      <article class="card lg r" data-c>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1671048116414-67585c932b8f?q=80&w=1600" alt="Authentic Uzbek plov with rice, lamb and yellow carrot">
+        <span class="tag">Signature</span><span class="num">01</span>
+        <div class="info">
+          <h3>Tashkent <em>Plov</em></h3>
+          <p>Long-grain devzira rice, lamb, yellow carrot, fried in cottonseed oil. Prepared by recipes that predate the restaurant.</p>
+        </div>
+      </article>
+      <article class="card md r" data-c>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1776766237026-47ced47d3779?q=80&w=1000" alt="Lamb skewers cooking over an open flame">
+        <span class="num">02</span>
+        <div class="info"><h3>Shashlik</h3><p>Open-coal lamb, beef and chicken — marinated in-house.</p></div>
+      </article>
+      <article class="card sm r" data-c>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1763951718950-c536b1295213?q=80&w=1000" alt="Naan flatbread being pulled from a tandoor">
+        <span class="num">03</span>
+        <div class="info"><h3>Tandoor Samsa</h3><p>Crisp on top, juicy lamb inside.</p></div>
+      </article>
+      <article class="card tall r" data-c>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1672338037155-339ab2408883?q=80&w=1200" alt="Bowl of hand-pulled noodles">
+        <span class="num">04</span>
+        <div class="info">
+          <h3>Hand-pulled <em>Lagman</em></h3>
+          <p>Noodles pulled to order, deep beef-and-vegetable broth, traditional spices. The dish many guests come back for.</p>
+        </div>
+      </article>
+      <article class="card wide r" data-c>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1770123366817-743776f66d6a?q=80&w=1600" alt="Spice powder falling against a moody dark background">
+        <span class="num">05</span>
+        <div class="info">
+          <h3>Shorpa &amp; <em>Manti</em></h3>
+          <p>Slow-simmered lamb soup. Steamed dumplings, hand-minced lamb. Quiet classics, faithfully made.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="spaces" class="spaces" style="background:linear-gradient(180deg,transparent,rgba(212,168,67,.02),transparent)">
+  <div class="sect-num">— 03 / Spaces</div>
+  <div class="wrap">
+    <div class="section-head r">
+      <span class="eyebrow">Six rooms · One house</span>
+      <h2>Choose your <em>evening.</em></h2>
+      <p>From the open-air courtyard to the Rishtan ceramic room, every space has its own character. Tell us what kind of night you want — we'll seat you accordingly.</p>
+    </div>
+    <div class="spaces-list rs">
+      <a class="space-row" data-c data-img="https://static.tildacdn.one/tild3132-6635-4832-a365-373964613237/photo_2024-07-18_041.jpeg"><div class="num">— 01</div><h3>Courtyard</h3><div class="meta">Open-air · live music</div><div class="arrow">→</div></a>
+      <a class="space-row" data-c data-img="https://static.tildacdn.one/tild3136-3039-4564-b833-653531376536/photo_2024-07-18_040.jpeg"><div class="num">— 02</div><h3>Summer Terrace</h3><div class="meta">Seasonal · 30 seats</div><div class="arrow">→</div></a>
+      <a class="space-row" data-c data-img="https://static.tildacdn.one/tild3236-6666-4832-b364-656437326639/photo_2024-07-18_040.jpeg"><div class="num">— 03</div><h3>Rishtan Room</h3><div class="meta">Hand-laid ceramic · intimate</div><div class="arrow">→</div></a>
+      <a class="space-row" data-c data-img="https://static.tildacdn.one/tild3461-3532-4033-a331-623166646637/photo_2024-07-18_041.jpeg"><div class="num">— 04</div><h3>Small Hall</h3><div class="meta">Ground floor · for groups</div><div class="arrow">→</div></a>
+      <a class="space-row" data-c data-img="https://static.tildacdn.one/tild3631-6431-4663-a330-306232623465/photo_2024-07-18_040.jpeg"><div class="num">— 05</div><h3>Second Floor</h3><div class="meta">Wrought-iron staircase</div><div class="arrow">→</div></a>
+      <a class="space-row" data-c data-img="https://images.unsplash.com/photo-1698614082118-8e6eaecb08ef?q=80&w=1000"><div class="num">— 06</div><h3>VIP</h3><div class="meta">Private · by reservation</div><div class="arrow">→</div></a>
+    </div>
+  </div>
+  <div class="space-preview" id="spacePreview"><img id="spacePreviewImg" alt="" loading="lazy"></div>
+</section>
+
+<div class="bleed" data-parallax-bleed>
+  <img loading="lazy" src="https://images.unsplash.com/photo-1758618079900-88fa596b6030?q=80&w=2400" alt="Ornate tilework archway">
+  <div class="bleed-text">
+    <blockquote>Live music every evening. A garden that quiets the city. A staircase that has watched 26 years of guests come and go.</blockquote>
+    <cite>— Caravan, Yakkasaray</cite>
+  </div>
+</div>
+
+<section id="reviews">
+  <div class="sect-num">— 04 / Reviews</div>
+  <div class="wrap">
+    <div class="section-head r">
+      <span class="eyebrow">Guests, in their own words</span>
+      <h2>1,280<em>+</em> verified reviews.<br>4.4<em>★</em> across platforms.</h2>
+    </div>
+    <div class="reviews-grid rs">
+      <div class="review" data-c>
+        <span class="stars">★★★★★</span>
+        <p>"Authentic Uzbek heritage — the very first national-cuisine restaurant in Tashkent. Plov, kebabs and mantas with consistent flavor and authenticity."</p>
+        <div class="src"><span><b>TripAdvisor</b> · Travelers' Choice 2025</span><span>4.2★ · 713</span></div>
+      </div>
+      <div class="review" data-c>
+        <span class="stars">★★★★★</span>
+        <p>"Fabulous garden courtyard with a wrought-iron staircase, rustic artistry and live music. The atmosphere is enchanting."</p>
+        <div class="src"><span><b>2GIS</b> · Tashkent</span><span>4.7★ · 567</span></div>
+      </div>
+      <div class="review" data-c>
+        <span class="stars">★★★★★</span>
+        <p>"Attentive, knowledgeable waiters who guide you through the menu in English. A memorable dining experience from start to finish."</p>
+        <div class="src"><span><b>TripAdvisor</b></span><span>Top 10% in Uzbekistan</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="sect-num">— 05 / Visit</div>
+  <div class="wrap">
+    <div class="section-head r">
+      <span class="eyebrow">Visit</span>
+      <h2 id="book">Find us in <em>Yakkasaray.</em></h2>
+      <p>Reservations are recommended on weekends and during live-music evenings. We answer the phone in Russian, English and Uzbek.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info r">
+        <div class="contact-row"><span class="lbl">Address</span><a class="val" target="_blank" rel="noopener" href="https://2gis.uz/tashkent/firm/70000001036447741" data-c>Abdulla Kahhar 22<br>Yakkasaray, Tashkent</a></div>
+        <div class="contact-row"><span class="lbl">Reserve</span><a class="val" href="tel:+998781507555" data-c>+998 78 150 75 55</a></div>
+        <div class="contact-row"><span class="lbl">Email</span><a class="val" href="mailto:info@caravangroup.uz" data-c>info@caravangroup.uz</a></div>
+        <div class="contact-row"><span class="lbl">Hours</span><span class="val">Daily · 11:00 – 02:00</span></div>
+        <div class="contact-row"><span class="lbl">Languages</span><span class="val">Русский · English · Oʻzbek</span></div>
+        <div class="contact-cta">
+          <a href="tel:+998781507555" class="btn btn-primary" data-c>Call to book <span class="arr">→</span></a>
+          <a href="mailto:info@caravangroup.uz?subject=Reservation%20at%20Caravan" class="btn btn-ghost" data-c>Email reservation</a>
+        </div>
+      </div>
+      <div class="map-wrap r" data-c>
+        <iframe loading="lazy" src="https://www.google.com/maps?q=Abdulla+Kahhar+22,+Tashkent&output=embed" title="Caravan restaurant location"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-mark r">Cara<em>van</em>.</div>
+    <div class="footer-bottom">
+      <div>
+        <div>The first Uzbek national-cuisine restaurant in Tashkent · Since 1999</div>
+        <div class="credits">Photography: caravan.uz / Tilda CDN · plus Brett Wharton, Sara Abilova, Cemrecan Yurtman, otabek xatipov, Dmytro Glazunov, Deny Hill, Zoshua Colah, Filipp Romanovski, Hsu-Han, Jasurbek Hasanov, Ivan Benets, Jessica Ching via Unsplash</div>
+      </div>
+      <div class="lang"><a href="#" class="active">EN</a><a href="#">RU</a><a href="#">UZ</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="mcta">
+  <a href="tel:+998781507555">📞 Call</a>
+  <a href="#book" class="book">Reserve table</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script type="module">
+import { animate, scroll, inView, stagger } from 'https://esm.sh/motion@11.11.13';
+
+// ===== LOADER =====
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('loader').classList.add('gone');
+    document.getElementById('hero').classList.add('ready');
+    setTimeout(()=>document.getElementById('loader').remove(),1200);
+  },1500);
+});
+
+// ===== LENIS smooth scroll =====
+const lenis = new Lenis({duration:1.25,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
+function raf(t){lenis.raf(t);requestAnimationFrame(raf)}requestAnimationFrame(raf);
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(id.length>1){const el=document.querySelector(id);if(el){e.preventDefault();lenis.scrollTo(el,{offset:-40,duration:1.6})}}
+  });
+});
+
+// ===== SCROLL PROGRESS =====
+scroll(progress=>{
+  document.getElementById('progress').style.width=(progress*100)+'%';
+});
+
+// ===== HERO clipPath reveal (the WOW pattern) =====
+const heroBg = document.getElementById('heroBg');
+const heroWrap = document.querySelector('.hero-wrap');
+scroll((p)=>{
+  // p goes 0->1 across the entire hero-wrap (200vh)
+  const c1 = 20 - p*20;        // 20% -> 0%
+  const c2 = 80 + p*20;        // 80% -> 100%
+  const size = 105 + p*25;     // 105% -> 130% (subtle zoom)
+  const fade = p > 0.85 ? 1 - (p-0.85)/0.15 : 1;
+  heroBg.style.clipPath = `polygon(${c1}% ${c1}%, ${c2}% ${c1}%, ${c2}% ${c2}%, ${c1}% ${c2}%)`;
+  heroBg.style.backgroundSize = size+'%';
+  heroBg.style.opacity = fade;
+}, { target: heroWrap, offset: ['start start','end end'] });
+
+// ===== CUSTOM CURSOR with magnetic =====
+if(window.matchMedia('(hover:hover)').matches){
+  const c=document.getElementById('cursor');
+  let mx=0,my=0,cx=0,cy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+  function loop(){
+    cx+=(mx-cx)*.18;cy+=(my-cy)*.18;
+    c.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`;
+    requestAnimationFrame(loop);
+  }loop();
+  document.querySelectorAll('[data-c],a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>c.classList.add('big'));
+    el.addEventListener('mouseleave',()=>c.classList.remove('big'));
+  });
+}
+
+// ===== REVEAL on enter view (Motion's inView) =====
+inView('.r, .rs', (el)=>{
+  el.classList.add('in');
+}, { margin: '0px 0px -60px 0px' });
+
+// ===== PARALLAX images (story + bleed) =====
+document.querySelectorAll('[data-parallax] img').forEach(img=>{
+  scroll((p)=>{
+    img.style.transform=`translateY(${(p-.5)*40}px)`;
+  },{ target: img, offset:['start end','end start'] });
+});
+document.querySelectorAll('[data-parallax-bleed]').forEach(b=>{
+  const img = b.querySelector('img');
+  scroll((p)=>{
+    img.style.transform=`translateY(${(p-.5)*60}px) scale(1.05)`;
+  },{ target: b, offset:['start end','end start'] });
+});
+
+// ===== ANIMATED COUNTERS =====
+const counters = document.querySelectorAll('[data-count]');
+counters.forEach(el=>{
+  const target = parseFloat(el.dataset.count);
+  const decimals = parseInt(el.dataset.decimals||'0');
+  const suffix = el.dataset.suf||'';
+  const prefix = el.dataset.pre||'';
+  let triggered=false;
+  inView(el,()=>{
+    if(triggered)return;triggered=true;
+    const start = performance.now();
+    const dur = 1800;
+    function tick(now){
+      const t = Math.min(1,(now-start)/dur);
+      const eased = 1 - Math.pow(1-t,3);
+      const v = target * eased;
+      let display;
+      if(decimals>0){
+        display = (v/Math.pow(10,decimals)).toFixed(decimals);
+      }else{
+        display = Math.floor(v).toLocaleString();
+      }
+      el.textContent = prefix + display + suffix;
+      if(t<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  },{ amount: 0.5 });
+});
+
+// ===== BENTO neighbor dim =====
+document.querySelectorAll('.bento .card').forEach(card=>{
+  card.addEventListener('mouseenter',()=>{
+    document.querySelectorAll('.bento .card').forEach(c=>{if(c!==card)c.style.opacity='.55'});
+  });
+  card.addEventListener('mouseleave',()=>{
+    document.querySelectorAll('.bento .card').forEach(c=>c.style.opacity='1');
+  });
+});
+
+// ===== SPACES hover preview that follows cursor =====
+const preview = document.getElementById('spacePreview');
+const previewImg = document.getElementById('spacePreviewImg');
+let pmx=0,pmy=0,ppx=0,ppy=0;
+function pLoop(){
+  ppx += (pmx-ppx)*.12;
+  ppy += (pmy-ppy)*.12;
+  preview.style.transform = `translate(${ppx-140}px,${ppy-180}px)`;
+  requestAnimationFrame(pLoop);
+}pLoop();
+document.querySelectorAll('.space-row').forEach(row=>{
+  row.addEventListener('mouseenter',e=>{
+    previewImg.src = row.dataset.img;
+    preview.classList.add('show');
+  });
+  row.addEventListener('mouseleave',()=>preview.classList.remove('show'));
+  row.addEventListener('mousemove',e=>{pmx=e.clientX;pmy=e.clientY});
+});
+
+// ===== Hero scroll hint hide on scroll =====
+scroll((p)=>{
+  document.querySelector('.scroll-hint').style.opacity = Math.max(0,1-p*4);
+},{ target: heroWrap });
+</script>
+</body>
+</html>
